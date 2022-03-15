@@ -24,6 +24,7 @@ class Quiz10:
 
     def quiz13quick(self) -> str:
         return None
+
     def quiz14merge(self):
         return None
 

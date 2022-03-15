@@ -106,6 +106,37 @@ class Quiz20:
         return {i: j for i, j in zip(students, scores)}
 
     def quiz26map(self) -> str:
+        a = [myRandom(0, 3) for i in range(3)]
+        print(a)
+        b1 = ['a', 'b', 'c', 'd']
+        b2 = []
+        for b1 in b1:
+            b2.append(b1)
+        print(b1)
+        print(b2)
+        b = [(i, j) for i, j in enumerate([b1])]
+        print(b)
+        c1 = ['정', '민']
+        c = [c1 for i in range(2)]
+        print(c)
+        d1 = ['바', '보']
+        d2 = ['1', '2']
+        d = [(d1, d2) for i, j in enumerate([d2])]
+        print(d)
+        e1 = [1, 2, 3, 4, 5]
+        e = [e1 for i in range(2)]
+        print(e)
+
+        print('------------------------------------------------------------------')
+
+        f = ('권혜민', 48, 7, 4, 45)
+        f1 = [0]
+        f2 = [4]
+        f3 = [2, 4]
+        f4 = f*3
+        f5 = len(f)
+        print(f'{f1},{f2},{f3},{f4},{f5}')
+
         return None
 
     def quiz27melon(self) -> str:

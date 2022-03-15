@@ -1,12 +1,12 @@
 import random
 import string
-from titanic.domains import Dataset
 
 import pandas as pd
 from icecream import ic
 import numpy as np
 
-from hello.domains import myRandom, myMember
+from context.models import Model
+from hello.domains import myMember, members
 
 
 class Quiz30:
@@ -93,11 +93,43 @@ class Quiz30:
         return None
 
     def quiz33_df_loc(self) -> str:
-        df = self.createDf(keys=['a', 'b', 'c', 'd'],
-                           vals=np.random.randint(0, 100, 4),
-                           len=3)
-        # ic(df)
+        '''
+             데이터프레임 생성 예제
+             d = [{'a': 1, 'b': 2, 'c': 3, 'd': 4},
+                  {'a': 100, 'b' : 200, 'c' : 300, 'd' : 400},
+                  {'a' : 1000, 'b' : 2000, 'c' : 3000, 'd' : 4000}]
+             df = self.createDf(keys=['a','b','c','d'],
+                                vals=np.random.randint(0,100,4),
+                                len=3)
+             '''
+        # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html
+        subjects = ['자바', '파이썬', '자바스크립트', 'SQL']
+        scores = np.random.randint(0, 100, (24, 4))
+        students = myMember()
+        students_scores = {student: score for student, score in zip(students, scores)}
+        students_scores_df = pd.DataFrame.from_dict(students_scores, orient="index", columns=subjects)
+        model = Model()
+        # model.save_model(fname='grade.csv', dframe=students_scores_df)
+        grade_df = model.new_model(fname='grade.csv')
+        ic(grade_df)
+        print('Q1. 파이썬의 점수만 출력하시오')
+        python_scores = None
+        ic(python_scores)
+        print('Q2. 조현국의 점수만 출력하시오')
+        cho_scores = None
+        ic(cho_scores)
+        print('Q3. 조현국의 ')
+        cho_subjects_scores = grade_df.loc[['조현국']]
+        ic(type(cho_subjects_scores))
+        ic(cho_scores)
 
+        return None
+
+    @staticmethod
+    def createDf(keys, vals, len):
+        return pd.DataFrame([dict(zip(keys, vals)) for _ in range(len)])
+
+    def quiz34_df_iloc(self) -> str:
         # ic(df.iloc[0])
         '''
         ic| df.iloc[0]: a    61
@@ -130,19 +162,40 @@ class Quiz30:
                                           0  96  6  77  28
                                           2  96  6  77  28
         '''
-        # subj = ['자바', '파이썬', '자바 스크립트', 'SQL']
-        # stud = myMember()
-        model = Model()
-        grade_df = model.new_model('grade.csv')
-        ic(grade_df)
-
-        return None
-
-    @staticmethod
-    def createDf(keys, vals, len):
-        return pd.DataFrame([dict(zip(keys, vals)) for _ in range(len)])
-
-    def quiz34_df_iloc(self) -> str:
+        # ic(df.iloc[lambda x: x.index % 2 == 0])
+        '''
+        ic| df.iloc[lambda x: x.index % 2 == 0]:     a   b   c   d
+                                                 0  65  40  32  69
+                                                 2  65  40  32  69
+        '''
+        # ic(df.iloc[0, 1])
+        '''ic| df.iloc[0, 1]: 32'''
+        # ic(df.iloc[[0, 2], [1, 3]])
+        '''
+        ic| df.iloc[[0, 2], [1, 3]]:     b   d
+                                     0  12  10
+                                     2  12  10
+        '''
+        # ic(df.iloc[1:3, 0:3])
+        '''
+        ic| df.iloc[1:3, 0:3]:     a  b   c
+                                1  82  9  12
+                                2  82  9  12
+        '''
+        # ic(df.iloc[:, [True, False, True, False]])
+        '''
+        ic| df.iloc[:, [True, False, True, False]]:     a   c
+                                                    0  86  99
+                                                    1  86  99
+                                                    2  86  99
+        '''
+        # ic(df.iloc[:, lambda df: [0, 2]])
+        '''
+        ic| df.iloc[:, lambda df: [0, 2]]:     a   c
+                                            0  59  58
+                                            1  59  58
+                                            2  59  58
+        '''
 
         return None
 
