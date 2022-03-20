@@ -1,16 +1,16 @@
-#context, fname, train, test, id, label
+# context, fname, train, test, id, label
 from dataclasses import dataclass
 
 
 @dataclass
 class Dataset:
-    dname : str
-    sname : str
-    fname : str
-    train : str
-    test : str
-    id : str
-    label : str
+    dname: str
+    sname: str
+    fname: str
+    train: str
+    test: str
+    id: str
+    label: str
 
     @property
     def dname(self) -> str: return self._dname

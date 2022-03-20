@@ -6,7 +6,7 @@ from icecream import ic
 import numpy as np
 
 from context.models import Model
-from hello.domains import myMember, members
+from hello.domains import myMember, members, myRandom
 
 
 class Quiz30:
@@ -199,7 +199,19 @@ class Quiz30:
 
         return None
 
-    def quiz35(self) -> str: return None
+    def quiz35(self) -> str:
+        marks = [myRandom(0,99) for i in range(1)]
+
+        number = 0
+        for i in marks:
+            if i >= 60 :
+                print('%d 합격' % number)
+            else:
+                print('%d 불합격'%number)
+
+
+
+        return None
 
     def quiz36(self) -> str: return None
 
