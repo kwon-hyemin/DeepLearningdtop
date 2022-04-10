@@ -145,30 +145,6 @@ class TitanicModel(object):
             these['AgeGroup'] = these['Age'].map(age_mapping)  # map() 을 사용
         return this
 
-        # train = this.train
-        # test = this.test
-        # age_mapping = {'어린이': 0, '10대': 1, '20대': 2, '30대': 3, '40대': 4, '50대': 5, '60대': 6, '7대': 7}
-        # train['Age'] = train['Age'].fillna(-0.5)
-        # test['Age'] = test['Age'].fillna(-0.5)
-        # bins = [-1, 0, 5, 12, 18, 24, 35, 60, np.inf]
-        # label = ['어린이', '10대', '20대', '30대', '40대', '50대', '60대', '7대']
-        # for these in [this.train, this.test]:
-        #     these['Age'] = these['Age'].replace(range(0, 10), '어린이')
-        #     these['Age'] = these['Age'].replace(range(10, 20), '10대')
-        #     these['Age'] = these['Age'].replace(range(20, 30), '20대')
-        #     these['Age'] = these['Age'].replace(range(30, 40), '30대')
-        #     these['Age'] = these['Age'].replace(range(40, 50), '40대')
-        #     these['Age'] = these['Age'].replace(range(50, 60), '50대')
-        #     these['Age'] = these['Age'].replace(range(60, 70), '60대')
-        #     these['Age'] = these['Age'].map(age_mapping)
-        #     these = these.fillna(0)
-        #     print(these['Age'].value_counts())
-
-        # train 의 values : S = 644, C = 168, Q = 77
-        # test 의 values  : S = 270, C = 102, Q = 46
-
-        return this
-
     @staticmethod
     def sex_nominal(this) -> object:
         gender_mapping = {'male': 0, 'female': 1}

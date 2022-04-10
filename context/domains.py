@@ -1,55 +1,57 @@
 # context, fname, train, test, id, label
 from dataclasses import dataclass
 
+import pandas
 
-@dataclass
+
+@dataclass()
 class Dataset:
-    dname: str
-    sname: str
-    fname: str
-    train: str
-    test: str
+    data_path: str
+    save_path: str
+    file_name: str
+    train: pandas.core.frame.DataFrame
+    test: pandas.core.frame.DataFrame
     id: str
     label: str
 
     @property
-    def dname(self) -> str: return self._dname
+    def data_path(self) -> str: return self._data_path
 
-    @dname.setter
-    def dname(self, dname): self._dname = dname
-
-    @property
-    def sname(self) -> str: return self._sname
-
-    @sname.setter
-    def sname(self, sname): self._sname = sname
+    @data_path.setter
+    def data_path(self, value): self._data_path = value
 
     @property
-    def fname(self) -> str: return self._fname
+    def save_path(self) -> str: return self._save_path
 
-    @fname.setter
-    def fname(self, fname): self._fname = fname
+    @save_path.setter
+    def save_path(self, save_path): self._save_path = save_path
 
     @property
-    def train(self) -> str: return self._train
+    def file_name(self) -> str: return self._file_name
+
+    @file_name.setter
+    def file_name(self, value): self._file_name = value
+
+    @property
+    def train(self) -> pandas.core.frame.DataFrame: return self._train
 
     @train.setter
-    def train(self, train): self._train = train
+    def train(self, value): self._train = value
 
     @property
-    def test(self) -> str: return self._test
+    def test(self) -> pandas.core.frame.DataFrame: return self._test
 
     @test.setter
-    def test(self, test): self._test = test
+    def test(self, value): self._test = value
 
     @property
     def id(self) -> str: return self._id
 
     @id.setter
-    def id(self, id): self._id = id
+    def id(self, value): self._id = value
 
     @property
     def label(self) -> str: return self._label
 
     @label.setter
-    def label(self, label): self._label = label
+    def label(self, value): self._label = value
