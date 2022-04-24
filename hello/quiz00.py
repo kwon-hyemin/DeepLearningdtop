@@ -13,24 +13,6 @@ def member():
 
 
 class Quiz00:
-    def quiz00calculator(self):
-        a = my100()
-        b = my100()
-        o = ['+', '-', '*', '/', '%']
-        ran = myRandom(0, 4)
-
-        if o[ran] == '+':
-            print(self.add(a, b))
-        elif o[ran] == '-':
-            print(self.sub(a, b))
-        elif o[ran] == '*':
-            print(self.mul(a, b))
-        elif o[ran] == '/':
-            print(self.div(a, b))
-        elif o[ran] == '%':
-            print(self.mod(a, b))
-
-        return None
 
     def add(self, a, b) -> float:
         return a + b
@@ -124,27 +106,7 @@ class Quiz00:
         pass
 
     def quiz05grade(self):
-        kor = myRandom(0, 100)
-        eng = myRandom(0, 100)
-        math = myRandom(0, 100)
-        sum = self.sum(kor, eng, math)
-        avg = self.agv(kor, eng, math)
-        grade = self.getGrade()
-        self.passChk()
-        return [sum, avg, grade, self.passChk]
-
-    def sum(self):
-        return self.kor + self.eng + self.math
-
-    def avg(self):
-        return self.kor + self.eng + self.math / 3
-
-    def grade(self):
         pass
-
-    def passChk(self):  # 60점이상이면 합격
-        pass
-
     def quiz06member_choice(self):
 
         return members()[myRandom(0, 23)]
