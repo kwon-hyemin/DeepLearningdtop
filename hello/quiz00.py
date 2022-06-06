@@ -17,12 +17,6 @@ class Quiz00:
         pass
 
     def quiz00calculator(self):
-        num1 = my100()
-        num2 = my100()
-        opcode_num = my_random(0, 4)
-        opcode_symbol = ['+', '-', '*', '/', '%']
-        opcode = opcode_symbol[opcode_num]
-        print(f'{num1} {opcode} {num2} = {calculator(num1, opcode, num2): .1f}')
         return None
 
     def quiz01bmi(self):
